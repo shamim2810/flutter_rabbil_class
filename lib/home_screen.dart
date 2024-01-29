@@ -1,103 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rabbil/Fragment/AlarmFragment.dart';
+import 'package:flutter_rabbil/Fragment/BalanceFragment.dart';
+import 'package:flutter_rabbil/Fragment/CallFragment.dart';
+import 'package:flutter_rabbil/Fragment/HomeFragment.dart';
+import 'package:flutter_rabbil/Fragment/PersonFragment.dart';
+import 'package:flutter_rabbil/Fragment/PhotoFragment.dart';
+import 'package:flutter_rabbil/Fragment/SearchFragment.dart';
+import 'package:flutter_rabbil/Fragment/SettingFragment.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  var MyItems = [
-    {
-      "image":
-          "https://www.executivegrapevine.com/uploads/articles/easyrecrue-talent-nurturing.jpg",
-      "title": "Shamim"
-    },
-    {
-      "image":
-          "https://www.executivegrapevine.com/uploads/articles/easyrecrue-talent-nurturing.jpg",
-      "title": "Asad"
-    },
-    {
-      "image":
-          "https://media.istockphoto.com/id/506316644/photo/care-of-new-life-baby-plant.webp?b=1&s=170667a&w=0&k=20&c=BkfrFpMj90N8JdZofDDikUHoJe-W7Xnk1nEVHY5uJL8=",
-      "title": "Masud"
-    },
-    {
-      "image":
-          "https://www.shutterstock.com/image-photo/earth-day-environment-hands-farmer-260nw-2132407499.jpg",
-      "title": "Sumaiya"
-    },
-    {
-      "image":
-          "https://media.licdn.com/dms/image/C5612AQHUe-Y3ow1Rcg/article-cover_image-shrink_600_2000/0/1600081457889?e=2147483647&v=beta&t=km7mX7fxZR7uRGiwZzV5i5c-gZ9V5V0nsL93hEeRDqU",
-      "title": "Pariha"
-    },
-    {
-      "image":
-          "https://t4.ftcdn.net/jpg/00/75/78/17/360_F_75781711_B2iyzvKB8qdigN3UMtpyl3l1LmfsQMsR.jpg",
-      "title": "Arefin"
-    },
-    {
-      "image":
-          "https://www.executivegrapevine.com/uploads/articles/easyrecrue-talent-nurturing.jpg",
-      "title": "Nodi"
-    },
-    {
-      "image":
-          "https://www.envision-creative.com/wp-content/uploads/2016/08/lead-nurturing-blog.jpg",
-      "title": "Shifat"
-    },
-    {
-      "image":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeDs6yBQVS2dB0LuSuQOrdK89BwCLXS9DSgm0QMyvMnIl5YQ33yaO-DKKlTYw_ewT570I&usqp=CAU",
-      "title": "Ripon"
-    },
-    {
-      "image":
-          "https://www.executivegrapevine.com/uploads/articles/easyrecrue-talent-nurturing.jpg",
-      "title": "Nodi"
-    },
-  ];
-
-  mySnackBar(context, message) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'ListView Builder & Gesture Detector',
-          style: TextStyle(color: Colors.white),
+    return DefaultTabController(
+        length: 8,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('TabBar TabView Fragment'),
+            centerTitle: true,
+            backgroundColor: Colors.grey,
+            bottom: TabBar(
+              isScrollable: true,
+              tabs: [
+              Tab(icon: Icon(Icons.home), text: 'Home',),
+              Tab(icon: Icon(Icons.access_alarm), text: 'alarm',),
+              Tab(icon: Icon(Icons.account_balance), text: 'Bank',),
+              Tab(icon: Icon(Icons.add_a_photo), text: 'photo',),
+              Tab(icon: Icon(Icons.add_call), text: 'call',),
+              Tab(icon: Icon(Icons.person), text: 'person',),
+              Tab(icon: Icon(Icons.search), text: 'search',),
+              Tab(icon: Icon(Icons.settings), text: 'setting',),
+            ],
+            ),
+          ),
+          body: TabBarView(
+              children: [
+                HomeFragmention(),
+                AlarmFragmention(),
+                BalanceFragmention(),
+                PhotoFragmention(),
+                CallFragmention(),
+                PersonFragmention(),
+                SearchFragmention(),
+                SettingFragmention(),
+              ],
+          ),
         ),
-        centerTitle: true,
-        backgroundColor: Colors.blueGrey,
-      ),
-      body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, crossAxisSpacing: 0, childAspectRatio: 1.2),
-          itemCount: MyItems.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                mySnackBar(
-                  context,
-                  MyItems[index]['title'],
-                );
-              },
-              child: Container(
-                margin: const EdgeInsets.all(5),
-                height: 220,
-                width: double.infinity,
-                child: Image.network(
-                  MyItems[index]['image']!,
-                  fit: BoxFit.fill,
-                ),
-              ),
-            );
-          }),
     );
   }
 }
