@@ -49,6 +49,11 @@ class HomeScreen extends StatelessWidget {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeDs6yBQVS2dB0LuSuQOrdK89BwCLXS9DSgm0QMyvMnIl5YQ33yaO-DKKlTYw_ewT570I&usqp=CAU",
       "title": "Ripon"
     },
+    {
+      "image":
+          "https://www.executivegrapevine.com/uploads/articles/easyrecrue-talent-nurturing.jpg",
+      "title": "Nodi"
+    },
   ];
 
   mySnackBar(context, message) {
@@ -63,11 +68,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ListView Builder & Gesture Detector',style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'ListView Builder & Gesture Detector',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blueGrey,
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, crossAxisSpacing: 0, childAspectRatio: 1.2),
           itemCount: MyItems.length,
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -78,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(5),
                 height: 220,
                 width: double.infinity,
                 child: Image.network(
