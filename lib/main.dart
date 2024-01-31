@@ -12,13 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(),
-      theme: ThemeData(
-        tabBarTheme: TabBarTheme(
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.pink,
-          //labelStyle: TextStyle(color: Colors.brown,)
-        ),
-      ),
     );
   }
 }
