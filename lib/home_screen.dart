@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rabbil/Page/ActivityPage1.dart';
-import 'package:flutter_rabbil/Page/ActivityPage2.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -9,22 +7,27 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Data pass Navigation'),
+        title: const Text('Card'),
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ActivityPage1('This is page 1'),),);
-            }, child: Text('Go Page 1'),),
-            SizedBox(height: 10,),
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ActivityPage2('This is page 2'),),);
-            }, child: Text('Go Page 2'),),
-          ],
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          shadowColor: Colors.deepOrange,
+          elevation: 80,
+          color: Colors.brown,
+          child: const SizedBox(
+            height: 200,
+            width: 200,
+            child: Center(
+                child: Text(
+              'This is Card',
+              style: TextStyle(color: Colors.white),
+            )),
+          ),
         ),
       ),
     );
