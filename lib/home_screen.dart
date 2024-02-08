@@ -7,15 +7,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Circle progress'),
+        title: const Text('Aspect Ratio'),
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
-      body: const Center(
-        child: LinearProgressIndicator(
-          color: Colors.deepOrange,
-          backgroundColor: Colors.blueGrey,
-          minHeight: 8,
+      body: Container(
+        color: Colors.deepOrange,
+        height: 500,
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: AspectRatio(
+            aspectRatio: 16 / 9,
+          child: Container(
+            color: Colors.pink,
+          ),
         ),
       ),
     );
