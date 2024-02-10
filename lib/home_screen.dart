@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rabbil/style.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -7,38 +8,25 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Flexiable'),
+          title: const Text('Media Query'),
           centerTitle: true,
           backgroundColor: Colors.grey,
         ),
 
         //Row and Column 2 ta diyei check korte hobe
         // Expanded and Flexiable semilar
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Flexible(
-              fit: FlexFit.tight,
-              flex: 2,
-              child: Container(
-                color: Colors.red,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Text(
+                  'Hello Flutter',
+                  style: HeadLine(context),
+                ),
               ),
-            ),
-            Flexible(
-              fit: FlexFit.tight,
-              flex: 3,
-              child: Container(
-                color: Colors.pink,
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.tight,
-              flex: 4,
-              child: Container(
-                color: Colors.deepOrange,
-              ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }
