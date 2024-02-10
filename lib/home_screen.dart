@@ -6,31 +6,35 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Layout Builder'),
-        centerTitle: true,
-        backgroundColor: Colors.grey,
-      ),
-      body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints boxConstraints){
-            if(boxConstraints.maxWidth > 600){
-              return Container(
-                height: 600,
-                width: 600,
-                color: Colors.green,
-                child: const Center(child: Text('Desktop'),),
-              );
-            }
-            else{
-              return Container(
-                height: 200,
-                width: 200,
+        appBar: AppBar(
+          title: const Text('Expanded'),
+          centerTitle: true,
+          backgroundColor: Colors.grey,
+        ),
+
+        //Row and Column 2 ta diyei check korte hobe
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
                 color: Colors.red,
-                child: const Center(child: Text('Mobile'),),
-              );
-            }
-          }
-      ),
-    );
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                color: Colors.pink,
+              ),
+            ),
+            Expanded(
+              flex: 4,
+              child: Container(
+                color: Colors.deepOrange,
+              ),
+            ),
+          ],
+        ));
   }
 }
